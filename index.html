@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TQ9HZQ1ME"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9TQ9HZQ1ME');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter For You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper: #fdfaf0;
+            --ink: #2c3e50;
+            --accent: #d63031;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('https://cdn-icons-png.flaticon.com/32/1077/1077035.png'), auto;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a1a;
+            background-image: radial-gradient(circle at 50% 50%, #3d1414 0%, #1a1a1a 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* The Confession Book Design */
+        .book-container {
+            position: relative;
+            background: var(--paper);
+            background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 5%);
+            border-radius: 5px 20px 20px 5px;
+            padding: 50px;
+            width: 100%;
+            max-width: 600px;
+            min-height: 70vh;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.5), inset 5px 0 10px rgba(0,0,0,0.1);
+            border-left: 15px solid #8e0e0e;
+            animation: openBook 1.2s ease-out;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        @keyframes openBook {
+            from { transform: rotateY(-20deg) scale(0.9); opacity: 0; }
+            to { transform: rotateY(0deg) scale(1); opacity: 1; }
+        }
+
+        .letter-content {
+            font-family: 'Crimson Text', serif;
+            color: var(--ink);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .handwritten-header {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .btn-group {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .yes-btn {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(214, 48, 49, 0.3);
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-3px);
+            background: #ff3e3e;
+        }
+
+        .no-btn {
+            background: transparent;
+            color: #777;
+            border: 1px solid #ccc;
+        }
+
+        /* Success Overlay */
+        #success-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-card {
+            background: white;
+            color: var(--ink);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 400px;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 4s ease-in infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        strong { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div class="book-container">
+        <h1 class="handwritten-header">Dear Sakhi,</h1>
+        
+        <div class="letter-content">
+            <p>
+                Mala Mahit aahe He asa Achanak Bolat aahe mi Pun Mala rahwala nahi. 
+                Mala mahit aahe he kahi diwas Tujhya sathi Khup Kathni Che hote... 
+                Pun Yaar Jevha tula Bolna Band zhala <strong>traditional Day</strong> pasun, 
+                tevha samjle ki tujhyasobat bolna hot astana Mi kiti khush rahaycho.
+            </p>
+            <br>
+            <p>
+                Ek tar kahi goshti cha timing itka Kharab zhala ki tyat Ha durawa wadat gela. 
+                Mala mahit aahe tula stress aala subjects cha, mi samju shkato family pressure, 
+                Academic losses pun tyat tu tujhya maitrini sobat pun rahna kami kelas... 
+                tyat health issues pun suru zhale tula.
+            </p>
+            <br>
+            <p>
+                Pun tyat ekti rahshil tar ajun khachshil. Mi pun same issues face kele aani karat pun aahe. 
+                Mala asa Relationship nako tar fakt ek <strong>companion</strong> pahije jila mi sagla share karu shakto. 
+                And I really like you so Much mhnun ha durawa nako aahe mala.
+            </p>
+            <br>
+            <p>
+                Pls atleast Academic goshti mule health kade durlaksh karu nakos. 
+                Brr te chocolate dusri basat navhti mhnun te dili tar sorry.
+            </p>
+            <br>
+            <p style="text-align: right; font-style: italic;">
+                Final Take Care..<br>
+                <strong>From ~ [Sam]</strong>
+            </p>
+            
+            <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
+            
+            <p style="text-align: center; font-weight: 600;">Aani he Changla watla ka ??</p>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn yes-btn" onclick="showLove()">Yes!</button>
+            <button class="btn no-btn" id="noBtn" onmouseover="dodge()">No</button>
+        </div>
+    </div>
+
+    <div id="success-overlay">
+        <div class="success-card">
+            <h1 class="handwritten-header" style="text-align: center;">Mala mahitch hota... ❤️</h1>
+            <p style="margin-bottom: 20px;">Mala mahitch hota avdnar! Chukat tar nahich mi Kay karaw mhnun. </p>
+            <p><strong>Final Sorry And Get well Soon Madam Ji! ☕✨</strong></p>
+            <button class="btn yes-btn" onclick="window.location.reload()" style="margin-top: 30px;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Floating Hearts Logic
+        function createHearts() {
+            const icons = ['❤️', '✨', '🌸', '☕'];
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }, 600);
+        }
+
+        // Dodging No Button
+        function dodge() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function showLove() {
+            document.getElementById('success-overlay').style.display = 'flex';
+        }
+
+        createHearts();
+
+        // Webhook (Keep original)
+        fetch("https://webhook.site/9627e2ed-7f39-46fd-acfa-5a4e46ab77c2", {
+            mode: 'no-cors'
+        });
+    </script>
+</body>
+</html>
