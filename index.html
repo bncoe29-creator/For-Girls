@@ -10,6 +10,7 @@
         body {
             margin: 0; padding: 0; min-height: 100vh;
             font-family: 'Outfit', sans-serif;
+            /* Animated Rainbow Background */
             background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
             background-size: 1800% 1800%;
             animation: flow 18s ease infinite;
@@ -20,6 +21,7 @@
 
         @keyframes flow { 0% { background-position: 0% 82%; } 50% { background-position: 100% 19%; } 100% { background-position: 0% 82%; } }
 
+        /* Sparkling Stars background effect */
         .star {
             position: absolute; background: white; border-radius: 50%; opacity: 0;
             pointer-events: none; animation: twinkle var(--duration) ease-in-out infinite;
@@ -31,40 +33,42 @@
         }
 
         header { text-align: center; padding: 30px 10px; z-index: 10; width: 100%; }
-        h1 { font-family: 'Fredoka', sans-serif; font-size: clamp(2rem, 8vw, 3.5rem); text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin: 0; }
+        h1 { font-family: 'Fredoka', sans-serif; font-size: clamp(2.2rem, 8vw, 3.5rem); text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin: 0; }
 
-        .meter-box { width: 80%; max-width: 400px; height: 10px; background: rgba(0,0,0,0.2); border-radius: 50px; margin: 20px auto; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; }
+        .meter-box { width: 80%; max-width: 400px; height: 12px; background: rgba(0,0,0,0.2); border-radius: 50px; margin: 20px auto; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; }
         #bar { height: 100%; width: 0%; background: linear-gradient(90deg, #fff, #70e1ff); box-shadow: 0 0 15px #fff; transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 90%; max-width: 800px; padding: 10px; z-index: 10; margin-bottom: 30px; }
         @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
 
-        .btn { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 2px solid rgba(255, 255, 255, 0.3); padding: 25px 5px; border-radius: 15px; color: white; font-weight: 900; font-size: 0.9rem; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
-        .btn.clicked { background: rgba(255, 255, 255, 0.4); border-color: #fff; }
+        .btn { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 2px solid rgba(255, 255, 255, 0.3); padding: 25px 5px; border-radius: 15px; color: white; font-weight: 900; font-size: 0.9rem; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .btn.clicked { background: rgba(255, 255, 255, 0.4); border-color: #fff; transform: scale(0.95); }
 
         #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; box-sizing: border-box; }
-        .modal { background: white; padding: 30px 20px; border-radius: 25px; text-align: center; max-width: 400px; width: 100%; color: #333; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .modal { background: white; padding: 35px 25px; border-radius: 25px; text-align: center; max-width: 400px; width: 100%; color: #333; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 
-        .next-btn { background: linear-gradient(90deg, #ff2400, #2b1de8); color: white; padding: 12px 35px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; margin-top: 15px; }
+        .next-btn { background: linear-gradient(90deg, #ff2400, #2b1de8); color: white; padding: 12px 35px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; margin-top: 15px; font-family: 'Outfit', sans-serif; }
 
-        /* Final Page Mobile Fixes */
+        /* Final Page Mobile Fix - Scrollable and Adaptive */
         #final-page { 
             display: none; text-align: center; 
             margin: 20px auto; width: 85%; max-width: 500px;
-            background: rgba(255,255,255,0.1); 
-            padding: 30px 20px; 
-            border-radius: 30px; border: 2px solid white; 
-            backdrop-filter: blur(10px); z-index: 10;
-            max-height: 80vh; overflow-y: auto; /* Allows scrolling if message is long */
+            background: rgba(255,255,255,0.12); 
+            padding: 40px 20px; 
+            border-radius: 35px; border: 2px solid white; 
+            backdrop-filter: blur(12px); z-index: 10;
+            max-height: 75vh; overflow-y: auto; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
-        .particle { position: fixed; pointer-events: none; animation: fall 3s ease-in forwards; z-index: 20; }
+        .particle { position: fixed; pointer-events: none; animation: fall 3.5s ease-in forwards; z-index: 20; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
 
-<audio id="bgMusic" loop>
+<!-- Ensure your MP3 file is named music.mp3 in your GitHub repo -->
+<audio id="bgMusic" loop preload="auto">
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -87,26 +91,31 @@
 </div>
 
 <div id="final-page">
-    <h2 style="font-size: clamp(1.8rem, 6vw, 2.5rem); margin-bottom: 15px;">Tum Aur Tumhari Baatein ❤️</h2>
-    <div style="font-size: clamp(1.1rem, 4vw, 1.4rem); line-height: 1.6; font-style: italic;">
+    <h2 style="font-size: clamp(1.8rem, 7vw, 2.8rem); margin-bottom: 20px;">Tum Aur Tumhari Baatein ❤️</h2>
+    <div style="font-size: clamp(1.1rem, 4.5vw, 1.5rem); line-height: 1.7; font-style: italic;">
         "Zaroorat nahi mujhe kisi aur sahare ki,<br>
         Bas ek jhalak kaafi hai tumhare muskurane ki...<br><br>
         Duniya ki har khushi ek taraf,<br>
         Aur ek taraf ye khushi tumse dil lagane ki."
     </div>
-    <button class="next-btn" style="background: white; color: #ff2400; margin-top: 25px;" onclick="location.reload()">Reset ✨</button>
+    <button class="next-btn" style="background: white; color: #ff2400; margin-top: 30px;" onclick="location.reload()">Reset ✨</button>
 </div>
 
 <div id="overlay">
     <div class="modal">
-        <div id="message" style="font-size: 1.2rem; margin-bottom: 10px; line-height: 1.5;"></div>
+        <div id="message" style="font-size: 1.25rem; margin-bottom: 15px; line-height: 1.6; font-weight: 500;"></div>
         <button class="next-btn" onclick="closeBox()">Next ✨</button>
     </div>
 </div>
 
 <script>
+    // Audio configuration for the instrumental build-up
+    const startTime = 48; 
+    const endTime = 108;   
+    let musicStarted = false;
+
     function createStars() {
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 45; i++) {
             const star = document.createElement('div');
             star.className = 'star';
             const size = Math.random() * 3 + 2 + 'px';
@@ -133,14 +142,23 @@
 
     let count = 0;
     let clicked = new Set();
-    let musicStarted = false;
 
     function openBox(btn, key) {
-        if (!musicStarted) {
-            const music = document.getElementById('bgMusic');
+        const music = document.getElementById('bgMusic');
+        
+        // Force music play on interaction
+        if (!musicStarted || music.paused) {
+            music.currentTime = startTime;
             music.volume = 0.5;
-            music.play().catch(e => console.log("Audio requires interaction"));
-            musicStarted = true;
+            music.play().then(() => {
+                musicStarted = true;
+            }).catch(e => console.log("Waiting for more clicks to start audio"));
+
+            music.ontimeupdate = function() {
+                if (music.currentTime >= endTime) {
+                    music.currentTime = startTime;
+                }
+            };
         }
 
         document.getElementById('message').innerText = content[key];
@@ -158,7 +176,7 @@
                 document.getElementById('main-content').style.display = 'none';
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('final-page').style.display = 'block';
-                setInterval(spawnParticle, 200);
+                setInterval(spawnParticle, 180);
             }, 800);
         }
     }
@@ -168,12 +186,12 @@
     function spawnParticle() {
         const s = document.createElement('div');
         s.className = 'particle';
-        s.innerHTML = ['✨', '💖', '⭐', '❤️'][Math.floor(Math.random()*4)];
+        s.innerHTML = ['✨', '💖', '⭐', '❤️', '🌸'][Math.floor(Math.random()*5)];
         s.style.left = Math.random() * 100 + 'vw';
         s.style.top = '-50px';
-        s.style.fontSize = '24px';
+        s.style.fontSize = '26px';
         document.body.appendChild(s);
-        setTimeout(() => s.remove(), 3000);
+        setTimeout(() => s.remove(), 3500);
     }
 </script>
 </body>
