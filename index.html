@@ -14,20 +14,15 @@
             background-size: 1800% 1800%;
             animation: flow 18s ease infinite;
             display: flex; flex-direction: column; align-items: center;
-            overflow: hidden; color: white;
+            overflow-x: hidden; color: white;
             position: relative;
         }
 
         @keyframes flow { 0% { background-position: 0% 82%; } 50% { background-position: 100% 19%; } 100% { background-position: 0% 82%; } }
 
-        /* Sparkling Stars Style */
         .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            pointer-events: none;
-            animation: twinkle var(--duration) ease-in-out infinite;
+            position: absolute; background: white; border-radius: 50%; opacity: 0;
+            pointer-events: none; animation: twinkle var(--duration) ease-in-out infinite;
         }
 
         @keyframes twinkle {
@@ -35,24 +30,33 @@
             50% { opacity: 0.8; transform: scale(1.2); }
         }
 
-        header { text-align: center; padding: 50px 20px; z-index: 10; }
-        h1 { font-family: 'Fredoka', sans-serif; font-size: 3.5rem; text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin: 0; }
+        header { text-align: center; padding: 30px 10px; z-index: 10; width: 100%; }
+        h1 { font-family: 'Fredoka', sans-serif; font-size: clamp(2rem, 8vw, 3.5rem); text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin: 0; }
 
-        .meter-box { width: 85%; max-width: 450px; height: 12px; background: rgba(0,0,0,0.2); border-radius: 50px; margin: 25px auto; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; }
+        .meter-box { width: 80%; max-width: 400px; height: 10px; background: rgba(0,0,0,0.2); border-radius: 50px; margin: 20px auto; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; }
         #bar { height: 100%; width: 0%; background: linear-gradient(90deg, #fff, #70e1ff); box-shadow: 0 0 15px #fff; transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
-        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 90%; max-width: 900px; padding: 20px; z-index: 10; }
-        @media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 90%; max-width: 800px; padding: 10px; z-index: 10; margin-bottom: 30px; }
+        @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
 
-        .btn { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 2px solid rgba(255, 255, 255, 0.3); padding: 30px 10px; border-radius: 20px; color: white; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+        .btn { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 2px solid rgba(255, 255, 255, 0.3); padding: 25px 5px; border-radius: 15px; color: white; font-weight: 900; font-size: 0.9rem; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
         .btn.clicked { background: rgba(255, 255, 255, 0.4); border-color: #fff; }
 
-        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal { background: white; padding: 40px; border-radius: 35px; text-align: center; max-width: 400px; width: 85%; color: #333; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; box-sizing: border-box; }
+        .modal { background: white; padding: 30px 20px; border-radius: 25px; text-align: center; max-width: 400px; width: 100%; color: #333; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 
-        .next-btn { background: linear-gradient(90deg, #ff2400, #2b1de8); color: white; padding: 14px 40px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; }
+        .next-btn { background: linear-gradient(90deg, #ff2400, #2b1de8); color: white; padding: 12px 35px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; margin-top: 15px; }
 
-        #final-page { display: none; text-align: center; margin: 50px auto; max-width: 600px; background: rgba(255,255,255,0.1); padding: 50px 20px; border-radius: 40px; border: 2px solid white; backdrop-filter: blur(10px); z-index: 10; }
+        /* Final Page Mobile Fixes */
+        #final-page { 
+            display: none; text-align: center; 
+            margin: 20px auto; width: 85%; max-width: 500px;
+            background: rgba(255,255,255,0.1); 
+            padding: 30px 20px; 
+            border-radius: 30px; border: 2px solid white; 
+            backdrop-filter: blur(10px); z-index: 10;
+            max-height: 80vh; overflow-y: auto; /* Allows scrolling if message is long */
+        }
 
         .particle { position: fixed; pointer-events: none; animation: fall 3s ease-in forwards; z-index: 20; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
@@ -61,7 +65,7 @@
 <body>
 
 <audio id="bgMusic" loop>
-    <source src="PASTE_YOUR_AUDIO_LINK_HERE.mp3" type="audio/mpeg">
+    <source src="ED SHEERAN PERFECT (instrumental) - JOEL MIRANDA.mp3" type="audio/mpeg">
 </audio>
 
 <header>
@@ -83,32 +87,30 @@
 </div>
 
 <div id="final-page">
-    <h2 style="font-size: 3rem; margin-bottom: 20px;">Tum Aur Tumhari Baatein ❤️</h2>
-    <div style="font-size: 1.5rem; line-height: 1.8; font-style: italic;">
+    <h2 style="font-size: clamp(1.8rem, 6vw, 2.5rem); margin-bottom: 15px;">Tum Aur Tumhari Baatein ❤️</h2>
+    <div style="font-size: clamp(1.1rem, 4vw, 1.4rem); line-height: 1.6; font-style: italic;">
         "Zaroorat nahi mujhe kisi aur sahare ki,<br>
-        Bas ek jhalak kaafi hai tumhare muskurane ki...<br>
+        Bas ek jhalak kaafi hai tumhare muskurane ki...<br><br>
         Duniya ki har khushi ek taraf,<br>
         Aur ek taraf ye khushi tumse dil lagane ki."
     </div>
-    <button class="next-btn" style="background: white; color: #ff2400; margin-top: 30px;" onclick="location.reload()">Reset ✨</button>
+    <button class="next-btn" style="background: white; color: #ff2400; margin-top: 25px;" onclick="location.reload()">Reset ✨</button>
 </div>
 
 <div id="overlay">
     <div class="modal">
-        <div id="message" style="font-size: 1.5rem; margin-bottom: 20px;"></div>
+        <div id="message" style="font-size: 1.2rem; margin-bottom: 10px; line-height: 1.5;"></div>
         <button class="next-btn" onclick="closeBox()">Next ✨</button>
     </div>
 </div>
 
 <script>
-    // Create background stars
     function createStars() {
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 40; i++) {
             const star = document.createElement('div');
             star.className = 'star';
-            const size = Math.random() * 4 + 2 + 'px';
-            star.style.width = size;
-            star.style.height = size;
+            const size = Math.random() * 3 + 2 + 'px';
+            star.style.width = size; star.style.height = size;
             star.style.left = Math.random() * 100 + 'vw';
             star.style.top = Math.random() * 100 + 'vh';
             star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
@@ -136,8 +138,8 @@
     function openBox(btn, key) {
         if (!musicStarted) {
             const music = document.getElementById('bgMusic');
-            music.volume = 0.4;
-            music.play();
+            music.volume = 0.5;
+            music.play().catch(e => console.log("Audio requires interaction"));
             musicStarted = true;
         }
 
@@ -156,7 +158,7 @@
                 document.getElementById('main-content').style.display = 'none';
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('final-page').style.display = 'block';
-                setInterval(spawnParticle, 150);
+                setInterval(spawnParticle, 200);
             }, 800);
         }
     }
@@ -169,7 +171,7 @@
         s.innerHTML = ['✨', '💖', '⭐', '❤️'][Math.floor(Math.random()*4)];
         s.style.left = Math.random() * 100 + 'vw';
         s.style.top = '-50px';
-        s.style.fontSize = (Math.random() * 20 + 25) + 'px';
+        s.style.fontSize = '24px';
         document.body.appendChild(s);
         setTimeout(() => s.remove(), 3000);
     }
