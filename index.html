@@ -1,251 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TQ9HZQ1ME"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9TQ9HZQ1ME');
-    </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Letter For You</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <title>The Vibe ✨</title>
     <style>
-        :root {
-            --paper: #fdfaf0;
-            --ink: #2c3e50;
-            --accent: #d63031;
-            --glass: rgba(255, 255, 255, 0.8);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: url('https://cdn-icons-png.flaticon.com/32/1077/1077035.png'), auto;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Outfit:wght@400;900&display=swap');
 
         body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #1a1a1a;
-            background-image: radial-gradient(circle at 50% 50%, #3d1414 0%, #1a1a1a 100%);
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-            padding: 20px;
-        }
-
-        /* The Confession Book Design */
-        .book-container {
+            margin: 0; padding: 0; min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+            background-size: 1800% 1800%;
+            animation: flow 18s ease infinite;
+            display: flex; flex-direction: column; align-items: center;
+            overflow: hidden; color: white;
             position: relative;
-            background: var(--paper);
-            background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 5%);
-            border-radius: 5px 20px 20px 5px;
-            padding: 50px;
-            width: 100%;
-            max-width: 600px;
-            min-height: 70vh;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.5), inset 5px 0 10px rgba(0,0,0,0.1);
-            border-left: 15px solid #8e0e0e;
-            animation: openBook 1.2s ease-out;
-            position: relative;
-            overflow-y: auto;
         }
 
-        @keyframes openBook {
-            from { transform: rotateY(-20deg) scale(0.9); opacity: 0; }
-            to { transform: rotateY(0deg) scale(1); opacity: 1; }
-        }
+        @keyframes flow { 0% { background-position: 0% 82%; } 50% { background-position: 100% 19%; } 100% { background-position: 0% 82%; } }
 
-        .letter-content {
-            font-family: 'Crimson Text', serif;
-            color: var(--ink);
-            font-size: 1.15rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        .handwritten-header {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        .btn-group {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .btn {
-            padding: 12px 35px;
-            border-radius: 5px;
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: 0.3s;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .yes-btn {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 15px rgba(214, 48, 49, 0.3);
-        }
-
-        .yes-btn:hover {
-            transform: translateY(-3px);
-            background: #ff3e3e;
-        }
-
-        .no-btn {
-            background: transparent;
-            color: #777;
-            border: 1px solid #ccc;
-        }
-
-        /* Success Overlay */
-        #success-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .success-card {
-            background: white;
-            color: var(--ink);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 400px;
-        }
-
-        .floating-heart {
+        /* Sparkling Stars Style */
+        .star {
             position: absolute;
-            font-size: 1.5rem;
-            animation: float 4s ease-in infinite;
+            background: white;
+            border-radius: 50%;
             opacity: 0;
-            z-index: 0;
+            pointer-events: none;
+            animation: twinkle var(--duration) ease-in-out infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 0; }
-            20% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.8; transform: scale(1.2); }
         }
 
-        strong { color: var(--accent); }
+        header { text-align: center; padding: 50px 20px; z-index: 10; }
+        h1 { font-family: 'Fredoka', sans-serif; font-size: 3.5rem; text-shadow: 0 5px 15px rgba(0,0,0,0.3); margin: 0; }
+
+        .meter-box { width: 85%; max-width: 450px; height: 12px; background: rgba(0,0,0,0.2); border-radius: 50px; margin: 25px auto; border: 2px solid rgba(255,255,255,0.4); overflow: hidden; }
+        #bar { height: 100%; width: 0%; background: linear-gradient(90deg, #fff, #70e1ff); box-shadow: 0 0 15px #fff; transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: 90%; max-width: 900px; padding: 20px; z-index: 10; }
+        @media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .btn { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 2px solid rgba(255, 255, 255, 0.3); padding: 30px 10px; border-radius: 20px; color: white; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+        .btn.clicked { background: rgba(255, 255, 255, 0.4); border-color: #fff; }
+
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal { background: white; padding: 40px; border-radius: 35px; text-align: center; max-width: 400px; width: 85%; color: #333; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
+        .next-btn { background: linear-gradient(90deg, #ff2400, #2b1de8); color: white; padding: 14px 40px; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; }
+
+        #final-page { display: none; text-align: center; margin: 50px auto; max-width: 600px; background: rgba(255,255,255,0.1); padding: 50px 20px; border-radius: 40px; border: 2px solid white; backdrop-filter: blur(10px); z-index: 10; }
+
+        .particle { position: fixed; pointer-events: none; animation: fall 3s ease-in forwards; z-index: 20; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
 
-    <div class="book-container">
-        <h1 class="handwritten-header">Dear Sakhi,</h1>
+<audio id="bgMusic" loop>
+    <source src="PASTE_YOUR_AUDIO_LINK_HERE.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+    <h1>The Vibe ✨</h1>
+    <div class="meter-box"><div id="bar"></div></div>
+</header>
+
+<div id="main-content">
+    <div class="grid">
+        <button class="btn" onclick="openBox(this, 'smile')">Smile 😊</button>
+        <button class="btn" onclick="openBox(this, 'eyes')">Eyes ✨</button>
+        <button class="btn" onclick="openBox(this, 'vibe')">Vibe ⚡</button>
+        <button class="btn" onclick="openBox(this, 'hasi')">Hasi 😂</button>
+        <button class="btn" onclick="openBox(this, 'baat')">Baat 🗣️</button>
+        <button class="btn" onclick="openBox(this, 'aura')">Aura 🌟</button>
+        <button class="btn" onclick="openBox(this, 'peace')">Sukoon ❤️</button>
+        <button class="btn" onclick="openBox(this, 'magic')">Magic 🪄</button>
+    </div>
+</div>
+
+<div id="final-page">
+    <h2 style="font-size: 3rem; margin-bottom: 20px;">Tum Aur Tumhari Baatein ❤️</h2>
+    <div style="font-size: 1.5rem; line-height: 1.8; font-style: italic;">
+        "Zaroorat nahi mujhe kisi aur sahare ki,<br>
+        Bas ek jhalak kaafi hai tumhare muskurane ki...<br>
+        Duniya ki har khushi ek taraf,<br>
+        Aur ek taraf ye khushi tumse dil lagane ki."
+    </div>
+    <button class="next-btn" style="background: white; color: #ff2400; margin-top: 30px;" onclick="location.reload()">Reset ✨</button>
+</div>
+
+<div id="overlay">
+    <div class="modal">
+        <div id="message" style="font-size: 1.5rem; margin-bottom: 20px;"></div>
+        <button class="next-btn" onclick="closeBox()">Next ✨</button>
+    </div>
+</div>
+
+<script>
+    // Create background stars
+    function createStars() {
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 4 + 2 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            star.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(star);
+        }
+    }
+    createStars();
+
+    const content = {
+        smile: "Teri smile ekdum 'electric' hai, pura din charge kar deti hai! 😊",
+        eyes: "Teri aankhon mein wo depth hai jo kisi aur mein nahi. 👀",
+        vibe: "Log aesthetic dhoondte hain, mere liye teri vibe hi kafi hai. ⚡",
+        hasi: "Teri hasi sun loon toh mera mood instantly 'refresh' ho jata hai. 😂",
+        baat: "Tujhse baat karte waqt waqt ka pata hi nahi chalta. 🗣️",
+        aura: "Tere paas hone se hi har jagah positive energy aa jati hai. ✨",
+        peace: "Tu sirf mera crush nahi, mera sukoon hai. ❤️",
+        magic: "Tujhse milna mere liye kisi magic se kam nahi thaa. 🪄"
+    };
+
+    let count = 0;
+    let clicked = new Set();
+    let musicStarted = false;
+
+    function openBox(btn, key) {
+        if (!musicStarted) {
+            const music = document.getElementById('bgMusic');
+            music.volume = 0.4;
+            music.play();
+            musicStarted = true;
+        }
+
+        document.getElementById('message').innerText = content[key];
+        document.getElementById('overlay').style.display = 'flex';
+        btn.classList.add('clicked');
         
-        <div class="letter-content">
-            <p>
-                Mala Mahit aahe He asa Achanak Bolat aahe mi Pun Mala rahwala nahi. 
-                Mala mahit aahe he kahi diwas Tujhya sathi Khup Kathni Che hote... 
-                Pun Yaar Jevha tula Bolna Band zhala <strong>traditional Day</strong> pasun, 
-                tevha samjle ki tujhyasobat bolna hot astana Mi kiti khush rahaycho.
-            </p>
-            <br>
-            <p>
-                Ek tar kahi goshti cha timing itka Kharab zhala ki tyat Ha durawa wadat gela. 
-                Mala mahit aahe tula stress aala subjects cha, mi samju shkato family pressure, 
-                Academic losses pun tyat tu tujhya maitrini sobat pun rahna kami kelas... 
-                tyat health issues pun suru zhale tula.
-            </p>
-            <br>
-            <p>
-                Pun tyat ekti rahshil tar ajun khachshil. Mi pun same issues face kele aani karat pun aahe. 
-                Mala asa Relationship nako tar fakt ek <strong>companion</strong> pahije jila mi sagla share karu shakto. 
-                And I really like you so Much mhnun ha durawa nako aahe mala.
-            </p>
-            <br>
-            <p>
-                Pls atleast Academic goshti mule health kade durlaksh karu nakos. 
-                Brr te chocolate dusri basat navhti mhnun te dili tar sorry.
-            </p>
-            <br>
-            <p style="text-align: right; font-style: italic;">
-                Final Take Care..<br>
-                <strong>From ~ [Sam]</strong>
-            </p>
-            
-            <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
-            
-            <p style="text-align: center; font-weight: 600;">Aani he Changla watla ka ??</p>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn yes-btn" onclick="showLove()">Yes!</button>
-            <button class="btn no-btn" id="noBtn" onmouseover="dodge()">No</button>
-        </div>
-    </div>
-
-    <div id="success-overlay">
-        <div class="success-card">
-            <h1 class="handwritten-header" style="text-align: center;">Mala mahitch hota... ❤️</h1>
-            <p style="margin-bottom: 20px;">Mala mahitch hota avdnar! Chukat tar nahich mi Kay karaw mhnun. </p>
-            <p><strong>Final Sorry And Get well Soon Madam Ji! ☕✨</strong></p>
-            <button class="btn yes-btn" onclick="window.location.reload()" style="margin-top: 30px;">Close</button>
-        </div>
-    </div>
-
-    <script>
-        // Floating Hearts Logic
-        function createHearts() {
-            const icons = ['❤️', '✨', '🌸', '☕'];
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.innerText = icons[Math.floor(Math.random() * icons.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = '100vh';
-                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 4000);
-            }, 600);
+        if(!clicked.has(key)) {
+            clicked.add(key);
+            count += 12.5;
+            document.getElementById('bar').style.width = count + '%';
         }
 
-        // Dodging No Button
-        function dodge() {
-            const btn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - 150);
-            const y = Math.random() * (window.innerHeight - 150);
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
+        if(clicked.size === 8) {
+            setTimeout(() => {
+                document.getElementById('main-content').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('final-page').style.display = 'block';
+                setInterval(spawnParticle, 150);
+            }, 800);
         }
+    }
 
-        function showLove() {
-            document.getElementById('success-overlay').style.display = 'flex';
-        }
+    function closeBox() { document.getElementById('overlay').style.display = 'none'; }
 
-        createHearts();
-
-        // Webhook (Keep original)
-        fetch("https://webhook.site/9627e2ed-7f39-46fd-acfa-5a4e46ab77c2", {
-            mode: 'no-cors'
-        });
-    </script>
+    function spawnParticle() {
+        const s = document.createElement('div');
+        s.className = 'particle';
+        s.innerHTML = ['✨', '💖', '⭐', '❤️'][Math.floor(Math.random()*4)];
+        s.style.left = Math.random() * 100 + 'vw';
+        s.style.top = '-50px';
+        s.style.fontSize = (Math.random() * 20 + 25) + 'px';
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 3000);
+    }
+</script>
 </body>
 </html>
